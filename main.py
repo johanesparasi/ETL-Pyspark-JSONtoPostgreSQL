@@ -6,13 +6,13 @@ url = 'jdbc:postgresql://localhost:5432/spark'
 table = 'json'
 driver = 'org.postgresql.Driver'
 user = 'postgres'
-password = 'johanes'
+password = ''
 
 spark = SparkSession.builder.appName('JSON').getOrCreate()
 spark.conf.set('spark.sql.repl.eagerEval.enabled', True)
 
 # you can download json file from https://www.yelp.com/dataset/download
-df = spark.read.format('json').option('inferSchema','true').load('D:/Python/Jupyter/yelp_dataset/yelp_academic_dataset_business.json')
+df = spark.read.format('json').option('inferSchema','true').load('D:/Jupyter/yelp_dataset/yelp_academic_dataset_business.json')
 
 ambience_schema = T.StructType(
     [
